@@ -2,20 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const JobCard = ({ jobs }) => {
-	const cards = jobs.map((job) => {
-		return (
-			<li>
-				<Link to={job.url} key={job.url}>
-					{job.name}
-				</Link>
-			</li>
-		);
-	})
+  console.log(`JOBS : ${jobs}`)
+  const cards = "Tapez dans la barre de recherche";
+  if (jobs !== null) {
+    jobs.map((job) => {
+      return (
+        <li>
+          <Link to={job.normalized_job_title} key={job.uuid}>
+            {job.suggestion}
+          </Link>
+        </li>
+      );
+    })}
+  
 
 	return (
 		<nav>
 			<ul>
-				{cards}
+        {cards}
 			</ul>
 		</nav>
 	);
